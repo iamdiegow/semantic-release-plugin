@@ -12,7 +12,7 @@
   "release": {
     "extends": [
       "semantic-release-monorepo",
-			"./release.config.js"
+			"./release.config"
     ]
   },
   "devDependencies": {
