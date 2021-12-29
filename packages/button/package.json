@@ -11,14 +11,16 @@
   "license": "ISC",
   "release": {
     "extends": [
-      "semantic-release-monorepo"
+      "semantic-release-monorepo",
+			"./release.config.js"
     ]
   },
   "devDependencies": {
-    "semantic-release-monorepo": "^7.0.5"
+    "semantic-release-monorepo": "^7.0.5",
+    "semrel-react-releaser": "*"
   },
   "scripts": {
     "test": "echo button works",
-    "release": "npx semantic-release"
+    "release": "npx semantic-release --debug"
   }
 }
