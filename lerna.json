@@ -6,8 +6,8 @@
   "version": "independent",
 	"command": {
 		"bootstrap": {
-			"hoist": [
-				"semantic-release"
+			"nohoist": [
+				"semantic-release-monorepo"
 			]
 		}
 	}

@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/iamdiegow/semantic-release-plugin#readme",
   "devDependencies": {
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "lerna": "^4.0.0"
   }
 }
