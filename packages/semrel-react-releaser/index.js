@@ -43,6 +43,10 @@ async function verifyConditions(pluginConfig, context) {
 }
 
 function success(pluginConfig, context) {
+	const {logger} = context
+
+	logger.info(PREFIX, context)
+
   const reactPackageJson = fs.readFileSync(
     path.join(reactPackagePath, 'package.json')
   );
