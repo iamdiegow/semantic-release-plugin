@@ -1,0 +1,14 @@
+{
+  "packages": [
+    "packages/*",
+		"react/*"
+  ],
+  "version": "independent",
+	"command": {
+		"bootstrap": {
+			"hoist": [
+				"semantic-release"
+			]
+		}
+	}
+}

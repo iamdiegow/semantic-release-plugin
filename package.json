@@ -4,8 +4,8 @@
   "description": "Monorepo to test semantic release plugins",
   "main": "index.js",
   "scripts": {
-		"build": "lerna run build",
-		"release": "lerna run release"
+    "build": "lerna run build",
+    "release": "lerna run release"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/iamdiegow/semantic-release-plugin/issues"
   },
-  "homepage": "https://github.com/iamdiegow/semantic-release-plugin#readme"
+  "homepage": "https://github.com/iamdiegow/semantic-release-plugin#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }
