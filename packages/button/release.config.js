@@ -7,7 +7,7 @@ module.exports = {
 		'@semantic-release/release-notes-generator',
 		'semrel-react-releaser'
 	],
-	dryRun: true,
+	dryRun: false,
 	ci: false,
 	debug: true
 }

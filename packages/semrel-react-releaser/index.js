@@ -49,7 +49,7 @@ function success(pluginConfig, context) {
 
   reactPackageJson.version = context.nextRelease.version;
 
-  fs.writeFileSync(path.join(reactPackagePath, 'package.json'));
+  fs.writeFileSync(path.join(reactPackagePath, 'package.json'), reactPackageJson);
 }
 
 module.exports = {
