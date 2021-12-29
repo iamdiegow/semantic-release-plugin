@@ -48,9 +48,9 @@ function success(_pluginConfig, context) {
 		return
 	}
 
-
 	logger.info(PREFIX, context)
 
+	logger.info(PREFIX, 'react package path: ', reactPackagePath)
 
   const reactPackageJson = JSON.parse(fs.readFileSync(
     path.join(reactPackagePath, 'package.json'),
@@ -59,11 +59,27 @@ function success(_pluginConfig, context) {
 
 	logger.info(PREFIX, reactPackageJson)
 
+	logger.info(PREFIX, 'version', reactPackageJson.version)
+
+	logger.info(PREFIX, 'next version', context.releases[0].version)
+
   reactPackageJson.version = context.releases[0].version;
 
-  fs.writeFileSync(path.join(reactPackagePath, 'package.json'), JSON.stringify(reactPackageJson));
+	logger.info(PREFIX, 'next package', reactPackageJson)
+
+  fs.writeFileSync(path.join(reactPackagePath, 'package.json'), JSON.stringify(reactPackageJson, null, 2));
+
+	fs.copyFile(path.join(__dirname, '.npmrc'), path.join(reactPackagePath, '.npmrc'))
+
+	logger.info(PREFIX, 'add .npmrc file to react package')
 
 	logger.info(PREFIX, `${reactPackageJson.name} package updated to version: ${reactPackageJson.version}`)
+
+	const stdout = childProcess.execSync('npm publish', {
+		cwd: reactPackagePath
+	}).toString()
+
+	logger.info(PREFIX, stdout)
 }
 
 module.exports = {
