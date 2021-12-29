@@ -27,7 +27,7 @@ async function verifyConditions(_pluginConfig, context) {
   logger.info(PREFIX, getLernaPackages());
 
   reactPackagePath = JSON.parse(getLernaPackages()).find(
-    (pkg) => pkg.name === `react-${packageJson.name}`
+    (pkg) => pkg.name === `do-not-use-react-${packageJson.name}`
   ).location;
 
   if (!reactPackagePath) {
@@ -75,7 +75,7 @@ function success(_pluginConfig, context) {
 
 	logger.info(PREFIX, `${reactPackageJson.name} package updated to version: ${reactPackageJson.version}`)
 
-	const stdout = childProcess.execSync('npm publish', {
+	const stdout = childProcess.execSync('npm publish --access public', {
 		cwd: reactPackagePath
 	}).toString()
 
