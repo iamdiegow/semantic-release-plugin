@@ -17,7 +17,7 @@ function getLernaPackages() {
 
 let reactPackagePath;
 
-async function verifyConditions(pluginConfig, context) {
+async function verifyConditions(_pluginConfig, context) {
   const { logger } = context;
 
   const packageJson = require(path.join(context.cwd, 'package.json'));
@@ -31,19 +31,23 @@ async function verifyConditions(pluginConfig, context) {
   ).location;
 
   if (!reactPackagePath) {
+		verified = false
     return;
   }
 
   logger.info(PREFIX, reactPackagePath);
   logger.success(PREFIX, 'react package exists!');
-
-  // const reactPackageExists = fs.existsSync(reactPackagePath);
-
   verified = true;
 }
 
-function success(pluginConfig, context) {
+function success(_pluginConfig, context) {
 	const {logger} = context
+
+	if(!verified) {
+		logger.info(PREFIX, 'Release is not verified!')
+		return
+	}
+
 
 	logger.info(PREFIX, context)
 
@@ -51,9 +55,11 @@ function success(pluginConfig, context) {
     path.join(reactPackagePath, 'package.json')
   );
 
-  reactPackageJson.version = context.nextRelease.version;
+  reactPackageJson.version = context.releases[0].version;
 
   fs.writeFileSync(path.join(reactPackagePath, 'package.json'), reactPackageJson);
+
+	logger.info(PREFIX, `${reactPackageJson.name} package updated to version: ${version}`)
 }
 
 module.exports = {
