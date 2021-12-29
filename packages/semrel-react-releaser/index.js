@@ -51,13 +51,17 @@ function success(_pluginConfig, context) {
 
 	logger.info(PREFIX, context)
 
-  const reactPackageJson = fs.readFileSync(
-    path.join(reactPackagePath, 'package.json')
-  );
+
+  const reactPackageJson = JSON.parse(fs.readFileSync(
+    path.join(reactPackagePath, 'package.json'),
+		{ encoding: 'utf8'}
+  ));
+
+	logger.info(PREFIX, reactPackageJson)
 
   reactPackageJson.version = context.releases[0].version;
 
-  fs.writeFileSync(path.join(reactPackagePath, 'package.json'), reactPackageJson);
+  fs.writeFileSync(path.join(reactPackagePath, 'package.json'), JSON.stringify(reactPackageJson));
 
 	logger.info(PREFIX, `${reactPackageJson.name} package updated to version: ${reactPackageJson.version}`)
 }
