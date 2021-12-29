@@ -3,10 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo button works"
-  },
+  "files": [
+    "index.js"
+  ],
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "release": {
+    "extends": [
+      "semantic-release-monorepo"
+    ]
+  },
+  "devDependencies": {
+    "semantic-release-monorepo": "^7.0.5"
+  },
+  "scripts": {
+    "test": "echo button works",
+    "release": "npx semantic-release"
+  }
 }
