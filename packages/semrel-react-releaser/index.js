@@ -59,7 +59,7 @@ function success(_pluginConfig, context) {
 
   fs.writeFileSync(path.join(reactPackagePath, 'package.json'), reactPackageJson);
 
-	logger.info(PREFIX, `${reactPackageJson.name} package updated to version: ${version}`)
+	logger.info(PREFIX, `${reactPackageJson.name} package updated to version: ${reactPackageJson.version}`)
 }
 
 module.exports = {
