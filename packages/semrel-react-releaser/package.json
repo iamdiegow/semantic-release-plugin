@@ -1,0 +1,12 @@
+{
+  "name": "semrel-react-releaser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo semrel-react-releaser works"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
