@@ -1,0 +1,21 @@
+{
+  "name": "monorepo-root",
+  "version": "0.0.0",
+  "description": "Monorepo to test semantic release plugins",
+  "main": "index.js",
+  "scripts": {
+		"build": "lerna run build",
+		"release": "lerna run release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamdiegow/semantic-release-plugin.git"
+  },
+  "keywords": [],
+  "author": "Diego Weinmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamdiegow/semantic-release-plugin/issues"
+  },
+  "homepage": "https://github.com/iamdiegow/semantic-release-plugin#readme"
+}
