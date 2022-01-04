@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Bootstrap dependencies
-        name: npx lerna bootstrap --hoist 
+        run: npx lerna bootstrap --hoist 
 
       - name: Release Packages 
         run: npm run release 
