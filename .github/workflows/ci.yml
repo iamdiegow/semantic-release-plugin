@@ -18,6 +18,11 @@ jobs:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bootstrap dependencies
+        name: npx lerna bootstrap --hoist 
 
       - name: Release Packages 
         run: npm run release 
